@@ -1,5 +1,5 @@
 [package]
-name = "backend"
+name = "be-the-hero"
 version = "0.1.0"
 authors = ["leocavalcante <lc@leocavalcante.com>"]
 edition = "2018"
