@@ -1,6 +1,7 @@
 table! {
     ngos (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
+        oid -> Text,
         name -> Text,
         email -> Text,
         whats_app -> Text,
@@ -11,7 +12,7 @@ table! {
 
 table! {
     projects (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         ngo_id -> Integer,
         name -> Text,
         description -> Text,
