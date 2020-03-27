@@ -1,16 +1,13 @@
-use std::collections::HashMap;
-
-use warp::Filter;
+use be_the_hero::db::db_pool;
+use be_the_hero::routes;
 
 #[tokio::main]
 async fn main() {
-    let app = warp::get()
-        .map(|| {
-            let mut body = HashMap::new();
-            body.insert("event", "OminiStack Week 11.0");
-            body.insert("user", "Leo Cavalcante");
-            warp::reply::json(&body)
-        });
+    dotenv::dotenv().ok();
+
+    let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL not set");
+    let pool = db_pool(database_url);
+    let app = routes::create_ngo(pool);
 
     warp::serve(app)
         .run(([127, 0, 0, 1], 8888))
