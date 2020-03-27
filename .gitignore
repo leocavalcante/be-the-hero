@@ -1,5 +1,7 @@
+.env
 target/
-*.rs.bk
+
+/backend/db.sqlite
 
 /frontend/pkg/
 /frontend/wasm-pack.log
